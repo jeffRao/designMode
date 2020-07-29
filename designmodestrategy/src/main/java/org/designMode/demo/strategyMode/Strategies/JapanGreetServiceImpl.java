@@ -1,6 +1,7 @@
 package org.designMode.demo.strategyMode.Strategies;
 
-import com.local.mytest.disgnModle.StrategyModel2.GreetService;
+
+import org.designMode.demo.strategyMode.GreetService;
 
 /**
  * <p>Title: ChinaGreetServiceImpl</p>

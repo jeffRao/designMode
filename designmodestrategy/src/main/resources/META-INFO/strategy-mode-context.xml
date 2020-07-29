@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 打招呼实现类，id使用语言名称，方便查找 -->
+    <bean name="chinese" class="org.designMode.demo.strategyMode.Strategies.ChinaGreetServiceImpl"/>
+    <bean name="japanese" class="org.designMode.demo.strategyMode.Strategies.JapanGreetServiceImpl"/>
+    <bean name="english" class="org.designMode.demo.strategyMode.Strategies.UsaGreetServiceImpl"/>
+
+    <!-- 创建Context实例 -->
+    <bean name="greetStrategyContext" class="org.designMode.demo.strategyMode.GreetStrategyContext"/>
+    <!-- 创建策略工厂 -->
+    <bean name="greetStrategyFactory" class="org.designMode.demo.strategyMode.GreetStrategyFactory">
+        <property name="greetServiceMap">
+            <util:map>
+                <entry key="chinese"  value-ref="chinese"/>
+                <entry key="japanese" value-ref="japanese"/>
+                <entry key="english" value-ref="english"/>
+            </util:map>
+        </property>
+    </bean>
+
+</beans>
